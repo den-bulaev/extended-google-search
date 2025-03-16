@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "بحث جوجل المتقدم"
+  },
+  "appDescription": {
+    "message": "وسّع تجربة البحث في Google Chrome باستخدام معلمات البحث المتقدمة."
+  },
+
+  "startLabel": {
+    "message": "إظهار من العنصر"
+  },
+  "startPlaceholder": {
+    "message": "100 رقم من 1 إلى"
+  },
+  "as_epqLabel": {
+    "message": "العبارة الدقيقة"
+  },
+  "as_epqPlaceholder": {
+    "message": "عبارة"
+  },
+  "as_filetypeLabel": {
+    "message": "البحث عن الملفات"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, إلخ"
+  },
+  "tbsLabel": {
+    "message": "اختيار الفترة الزمنية"
+  },
+  "lrLabel": {
+    "message": "تقييد حسب اللغة"
+  },
+  "hlLabel": {
+    "message": "لغة الواجهة"
+  },
+  "crLabel": {
+    "message": "اختر الدولة"
+  },
+  "numLabel": {
+    "message": "عرض لكل صفحة"
+  },
+  "numPlaceholder": {
+    "message": "100 رقم من 1 إلى"
+  },
+  "as_sitesearchLabel": {
+    "message": "تقييد النتائج إلى الموقع"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "استبعاد الكلمات"
+  },
+  "as_eqPlaceholder": {
+    "message": "تفاح موز"
+  },
+  "resetBtn": {
+    "message": "إعادة تعيين"
+  },
+  "applyBtn": {
+    "message": "تطبيق"
+  },
+  "tbsOptionLastHour": {
+    "message": "الساعة الماضية"
+  },
+  "tbsOptionLastDay": {
+    "message": "اليوم الماضي"
+  },
+  "tbsOptionLastWeek": {
+    "message": "الأسبوع الماضي"
+  },
+  "tbsOptionLastMonth": {
+    "message": "الشهر الماضي"
+  },
+  "tbsOptionLastYear": {
+    "message": "العام الماضي"
+  }
+}

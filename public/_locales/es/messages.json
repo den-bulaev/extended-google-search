@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "Búsqueda avanzada de Google"
+  },
+  "appDescription": {
+    "message": "Amplía tu experiencia de búsqueda en Google Chrome con parámetros de búsqueda avanzados."
+  },
+
+  "startLabel": {
+    "message": "Mostrar desde"
+  },
+  "startPlaceholder": {
+    "message": "Número del 1 al 100"
+  },
+  "as_epqLabel": {
+    "message": "Frase exacta"
+  },
+  "as_epqPlaceholder": {
+    "message": "frase"
+  },
+  "as_filetypeLabel": {
+    "message": "Buscar archivos"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, etc."
+  },
+  "tbsLabel": {
+    "message": "Seleccionar intervalo"
+  },
+  "lrLabel": {
+    "message": "Restringir por idioma"
+  },
+  "hlLabel": {
+    "message": "Idioma de la interfaz"
+  },
+  "crLabel": {
+    "message": "Seleccionar país"
+  },
+  "numLabel": {
+    "message": "Mostrar por página"
+  },
+  "numPlaceholder": {
+    "message": "Número del 1 al 100"
+  },
+  "as_sitesearchLabel": {
+    "message": "Restringir por sitio"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "Excluir palabras"
+  },
+  "as_eqPlaceholder": {
+    "message": "manzana plátano"
+  },
+  "resetBtn": {
+    "message": "Restablecer"
+  },
+  "applyBtn": {
+    "message": "Aplicar"
+  },
+  "tbsOptionLastHour": {
+    "message": "Última hora"
+  },
+  "tbsOptionLastDay": {
+    "message": "Último día"
+  },
+  "tbsOptionLastWeek": {
+    "message": "La semana pasada"
+  },
+  "tbsOptionLastMonth": {
+    "message": "El mes pasado"
+  },
+  "tbsOptionLastYear": {
+    "message": "El año pasado"
+  }
+}

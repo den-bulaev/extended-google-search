@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "Extended Google Search"
+  },
+  "appDescription": {
+    "message": "Extend your Google Chrome search experience with advanced search parameters."
+  },
+
+  "startLabel": {
+    "message": "Show from element"
+  },
+  "startPlaceholder": {
+    "message": "number from 1 to 100"
+  },
+  "as_epqLabel": {
+    "message": "Exact phrase"
+  },
+  "as_epqPlaceholder": {
+    "message": "phrase"
+  },
+  "as_filetypeLabel": {
+    "message": "Search for file types"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, etc."
+  },
+  "tbsLabel": {
+    "message": "Select time gap"
+  },
+  "lrLabel": {
+    "message": "Restrict by language"
+  },
+  "hlLabel": {
+    "message": "Interface language"
+  },
+  "crLabel": {
+    "message": "Select country"
+  },
+  "numLabel": {
+    "message": "Show per page"
+  },
+  "numPlaceholder": {
+    "message": "number from 1 to 100"
+  },
+  "as_sitesearchLabel": {
+    "message": "Restrict results to site"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "Exclude words"
+  },
+  "as_eqPlaceholder": {
+    "message": "apple banana"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "applyBtn": {
+    "message": "Apply"
+  },
+  "tbsOptionLastHour": {
+    "message": "Last hour"
+  },
+  "tbsOptionLastDay": {
+    "message": "Last day"
+  },
+  "tbsOptionLastWeek": {
+    "message": "Last week"
+  },
+  "tbsOptionLastMonth": {
+    "message": "Last month"
+  },
+  "tbsOptionLastYear": {
+    "message": "Last year"
+  }
+}

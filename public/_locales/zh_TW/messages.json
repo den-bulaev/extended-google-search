@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "擴展的谷歌搜索"
+  },
+  "appDescription": {
+    "message": "使用高級搜尋參數擴展您的 Google Chrome 搜尋體驗。"
+  },
+
+  "startLabel": {
+    "message": "從元素顯示"
+  },
+  "startPlaceholder": {
+    "message": "1 到 100 的數字"
+  },
+  "as_epqLabel": {
+    "message": "精確的短語"
+  },
+  "as_epqPlaceholder": {
+    "message": "短語"
+  },
+  "as_filetypeLabel": {
+    "message": "搜尋文件類型"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, 等等"
+  },
+  "tbsLabel": {
+    "message": "選擇時間區間"
+  },
+  "lrLabel": {
+    "message": "按語言限制"
+  },
+  "hlLabel": {
+    "message": "視窗語言"
+  },
+  "crLabel": {
+    "message": "選擇國家"
+  },
+  "numLabel": {
+    "message": "每頁顯示"
+  },
+  "numPlaceholder": {
+    "message": "1 到 100 的數字"
+  },
+  "as_sitesearchLabel": {
+    "message": "限制結果到網站"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "排除詞語"
+  },
+  "as_eqPlaceholder": {
+    "message": "蘋果 香蕉"
+  },
+  "resetBtn": {
+    "message": "重置"
+  },
+  "applyBtn": {
+    "message": "應用"
+  },
+  "tbsOptionLastHour": {
+    "message": "最後一小時"
+  },
+  "tbsOptionLastDay": {
+    "message": "最後一天"
+  },
+  "tbsOptionLastWeek": {
+    "message": "上週"
+  },
+  "tbsOptionLastMonth": {
+    "message": "上個月"
+  },
+  "tbsOptionLastYear": {
+    "message": "去年"
+  }
+}

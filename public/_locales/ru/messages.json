@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "Расширенный Гугл Поиск"
+  },
+  "appDescription": {
+    "message": "Расширьте возможности поиска в Google Chrome с помощью продвинутых параметров поиска."
+  },
+
+  "startLabel": {
+    "message": "Показать с элемента"
+  },
+  "startPlaceholder": {
+    "message": "число от 1 до 100"
+  },
+  "as_epqLabel": {
+    "message": "Фраза дословно"
+  },
+  "as_epqPlaceholder": {
+    "message": "фраза"
+  },
+  "as_filetypeLabel": {
+    "message": "Искать по типу файла"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, и т.д."
+  },
+  "tbsLabel": {
+    "message": "Выбрать временной промежуток"
+  },
+  "lrLabel": {
+    "message": "Ограничить по языку"
+  },
+  "hlLabel": {
+    "message": "Язык интерфейса"
+  },
+  "crLabel": {
+    "message": "Выбрать страну"
+  },
+  "numLabel": {
+    "message": "Количество на странице"
+  },
+  "numPlaceholder": {
+    "message": "число от 1 до 100"
+  },
+  "as_sitesearchLabel": {
+    "message": "Ограничить по сайту"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "Исключить слова"
+  },
+  "as_eqPlaceholder": {
+    "message": "яблоко банан"
+  },
+  "resetBtn": {
+    "message": "Сбросить"
+  },
+  "applyBtn": {
+    "message": "Применить"
+  },
+  "tbsOptionLastHour": {
+    "message": "Последний час"
+  },
+  "tbsOptionLastDay": {
+    "message": "Последний день"
+  },
+  "tbsOptionLastWeek": {
+    "message": "Последняя неделя"
+  },
+  "tbsOptionLastMonth": {
+    "message": "Последний месяц"
+  },
+  "tbsOptionLastYear": {
+    "message": "Последний год"
+  }
+}

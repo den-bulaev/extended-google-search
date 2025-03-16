@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "विस्तारित गूगल खोज"
+  },
+  "appDescription": {
+    "message": "उन्नत खोज पैरामीटर के साथ अपने Google Chrome खोज अनुभव का विस्तार करें।"
+  },
+
+  "startLabel": {
+    "message": "तत्व से दिखाएं"
+  },
+  "startPlaceholder": {
+    "message": "1 से 100 तक की संख्या"
+  },
+  "as_epqLabel": {
+    "message": "सटीक वाक्य"
+  },
+  "as_epqPlaceholder": {
+    "message": "वाक्य"
+  },
+  "as_filetypeLabel": {
+    "message": "फ़ाइलों के लिए खोजें"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, आदि"
+  },
+  "tbsLabel": {
+    "message": "समय अवधि चुनें"
+  },
+  "lrLabel": {
+    "message": "भाषा द्वारा प्रतिबंधित"
+  },
+  "hlLabel": {
+    "message": "इंटरफेस भाषा"
+  },
+  "crLabel": {
+    "message": "देश चुनें"
+  },
+  "numLabel": {
+    "message": "पृष्ठ प्रति दिखाएं"
+  },
+  "numPlaceholder": {
+    "message": "1 से 100 तक की संख्या"
+  },
+  "as_sitesearchLabel": {
+    "message": "साइट द्वारा सीमित करें"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "शब्दों को बाहर करें"
+  },
+  "as_eqPlaceholder": {
+    "message": "सेब केला"
+  },
+  "resetBtn": {
+    "message": "रीसेट"
+  },
+  "applyBtn": {
+    "message": "लागू करें"
+  },
+  "tbsOptionLastHour": {
+    "message": "पिछला घंटा"
+  },
+  "tbsOptionLastDay": {
+    "message": "पिछला दिन"
+  },
+  "tbsOptionLastWeek": {
+    "message": "पिछला सप्ताह"
+  },
+  "tbsOptionLastMonth": {
+    "message": "पिछला महीना"
+  },
+  "tbsOptionLastYear": {
+    "message": "पिछले साल"
+  }
+}

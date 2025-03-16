@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "Розширений Гугл Пошук"
+  },
+  "appDescription": {
+    "message": "Розширте можливості пошуку в Google Chrome за допомогою просунутих параметрів пошуку."
+  },
+
+  "startLabel": {
+    "message": "Показати з елемента"
+  },
+  "startPlaceholder": {
+    "message": "число від 1 до 100"
+  },
+  "as_epqLabel": {
+    "message": "Фраза дослівно"
+  },
+  "as_epqPlaceholder": {
+    "message": "фраза"
+  },
+  "as_filetypeLabel": {
+    "message": "Шукати за типом файлу"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, і т.д."
+  },
+  "tbsLabel": {
+    "message": "Обрати часовий проміжок"
+  },
+  "lrLabel": {
+    "message": "Обмежити по мові"
+  },
+  "hlLabel": {
+    "message": "Мова інтерфейсу"
+  },
+  "crLabel": {
+    "message": "Обрати країну"
+  },
+  "numLabel": {
+    "message": "Кількість на сторінці"
+  },
+  "numPlaceholder": {
+    "message": "число від 1 до 100"
+  },
+  "as_sitesearchLabel": {
+    "message": "Обмежити по сайту"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "Виключити слова"
+  },
+  "as_eqPlaceholder": {
+    "message": "яблуко банан"
+  },
+  "resetBtn": {
+    "message": "Скинути"
+  },
+  "applyBtn": {
+    "message": "Застосувати"
+  },
+  "tbsOptionLastHour": {
+    "message": "Остання година"
+  },
+  "tbsOptionLastDay": {
+    "message": "Останній день"
+  },
+  "tbsOptionLastWeek": {
+    "message": "Останній тиждень"
+  },
+  "tbsOptionLastMonth": {
+    "message": "Останній місяць"
+  },
+  "tbsOptionLastYear": {
+    "message": "Останній рік"
+  }
+}

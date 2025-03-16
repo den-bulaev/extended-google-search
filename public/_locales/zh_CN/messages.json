@@ -1,0 +1,78 @@
+{
+  "appName": {
+    "message": "扩展的谷歌搜索"
+  },
+  "appDescription": {
+    "message": "使用高级搜索参数扩展您的 Google Chrome 搜索体验。"
+  },
+
+  "startLabel": {
+    "message": "从元素显示"
+  },
+  "startPlaceholder": {
+    "message": "1 到 100 的数字"
+  },
+  "as_epqLabel": {
+    "message": "精确的短语"
+  },
+  "as_epqPlaceholder": {
+    "message": "短语"
+  },
+  "as_filetypeLabel": {
+    "message": "搜索文件类型"
+  },
+  "as_filetypePlaceholder": {
+    "message": "pdf, docx, 等等"
+  },
+  "tbsLabel": {
+    "message": "选择时间段"
+  },
+  "lrLabel": {
+    "message": "按语言限制"
+  },
+  "hlLabel": {
+    "message": "界面语言"
+  },
+  "crLabel": {
+    "message": "选择国家"
+  },
+  "numLabel": {
+    "message": "每页显示"
+  },
+  "numPlaceholder": {
+    "message": "1 到 100 的数字"
+  },
+  "as_sitesearchLabel": {
+    "message": "限制结果到站点"
+  },
+  "as_sitesearchPlaceholder": {
+    "message": "wikipedia.org"
+  },
+  "as_eqLabel": {
+    "message": "排除词语"
+  },
+  "as_eqPlaceholder": {
+    "message": "苹果 香蕉"
+  },
+  "resetBtn": {
+    "message": "重置"
+  },
+  "applyBtn": {
+    "message": "应用"
+  },
+  "tbsOptionLastHour": {
+    "message": "最后一小时"
+  },
+  "tbsOptionLastDay": {
+    "message": "最后一天"
+  },
+  "tbsOptionLastWeek": {
+    "message": "上周"
+  },
+  "tbsOptionLastMonth": {
+    "message": "上个月"
+  },
+  "tbsOptionLastYear": {
+    "message": "去年"
+  }
+}
