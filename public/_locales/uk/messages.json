@@ -36,6 +36,9 @@
   "crLabel": {
     "message": "Обрати країну"
   },
+  "udmLabel": {
+    "message": "Обрати udm фільтр"
+  },
   "numLabel": {
     "message": "Кількість на сторінці"
   },

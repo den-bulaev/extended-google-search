@@ -14,6 +14,7 @@ export interface ISelectNames {
   tbs: string;
   hl: string;
   lr: string;
+  udm: string;
 }
 
 export enum ESelectNames {
@@ -21,6 +22,7 @@ export enum ESelectNames {
   TBS = "tbs",
   HL = "hl",
   LR = "lr",
+  UDM = "udm",
 }
 
 export interface IParamsFormData extends ISelectNames {
@@ -40,6 +42,7 @@ export const defaultSelectOptions: Record<
   lr: { label: chrome.i18n.getMessage("lrLabel"), value: "" },
   hl: { label: chrome.i18n.getMessage("hlLabel"), value: "" },
   cr: { label: chrome.i18n.getMessage("crLabel"), value: "" },
+  udm: { label: chrome.i18n.getMessage("udmLabel"), value: "" },
 };
 
 export const tbsOptions: ISelectOption[] = [
@@ -352,12 +355,19 @@ export const lrOptions: ISelectOption[] = hlOptions.map((opt) => ({
   value: `lang_${opt.value}`,
 }));
 
+export const udmOptions: ISelectOption[] = [
+  { value: "14", label: "Drop AI" },
+  { value: "18", label: "Forums" },
+  { value: "28", label: "Shopping" },
+];
+
 export const labelTexts = {
   start: "Show from element",
   as_epq: "Exact phrase",
   as_filetype: "Search for file types",
   lr: defaultSelectOptions.lr!.label,
   hl: defaultSelectOptions.hl!.label,
+  udm: defaultSelectOptions.udm!.label,
   num: "Show per page",
   as_sitesearch: "Restrict results to site",
   as_eq: "Exclude words",

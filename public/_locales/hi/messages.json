@@ -36,6 +36,9 @@
   "crLabel": {
     "message": "देश चुनें"
   },
+  "udmLabel": {
+    "message": "यूडीएम (UDM) फ़िल्टर चुनें"
+  },
   "numLabel": {
     "message": "पृष्ठ प्रति दिखाएं"
   },

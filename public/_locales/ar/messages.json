@@ -36,6 +36,9 @@
   "crLabel": {
     "message": "اختر الدولة"
   },
+  "udmLabel": {
+    "message": "اختر مرشح UDM"
+  },
   "numLabel": {
     "message": "عرض لكل صفحة"
   },
