@@ -34,10 +34,13 @@
     "message": "Мова інтерфейсу"
   },
   "crLabel": {
-    "message": "Обрати країну"
+    "message": "Обрати країну сайту"
   },
   "udmLabel": {
     "message": "Обрати udm фільтр"
+  },
+  "glLabel": {
+    "message": "Обрати країну користувача"
   },
   "numLabel": {
     "message": "Кількість на сторінці"

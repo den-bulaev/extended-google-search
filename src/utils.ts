@@ -15,6 +15,7 @@ export interface ISelectNames {
   hl: string;
   lr: string;
   udm: string;
+  gl: string;
 }
 
 export enum ESelectNames {
@@ -23,6 +24,7 @@ export enum ESelectNames {
   HL = "hl",
   LR = "lr",
   UDM = "udm",
+  GL = "gl",
 }
 
 export interface IParamsFormData extends ISelectNames {
@@ -43,6 +45,7 @@ export const defaultSelectOptions: Record<
   hl: { label: chrome.i18n.getMessage("hlLabel"), value: "" },
   cr: { label: chrome.i18n.getMessage("crLabel"), value: "" },
   udm: { label: chrome.i18n.getMessage("udmLabel"), value: "" },
+  gl: { label: chrome.i18n.getMessage("glLabel"), value: "" },
 };
 
 export const tbsOptions: ISelectOption[] = [
@@ -286,6 +289,14 @@ export const crOptions: ISelectOption[] = [
   { label: "Zimbabwe", value: "countryZW" },
 ];
 
+export const glOptions: ISelectOption[] = crOptions.map((option) => {
+  // TARGET FOR VALUE OPTION IS "us"
+  return {
+    ...option,
+    value: option.value.split("country").join("").toLowerCase(),
+  };
+});
+
 export const hlOptions: ISelectOption[] = [
   { value: "af", label: "Afrikaans" },
   { value: "sq", label: "Albanian" },
@@ -368,6 +379,7 @@ export const labelTexts = {
   lr: defaultSelectOptions.lr!.label,
   hl: defaultSelectOptions.hl!.label,
   udm: defaultSelectOptions.udm!.label,
+  gl: defaultSelectOptions.gl!.label,
   num: "Show per page",
   as_sitesearch: "Restrict results to site",
   as_eq: "Exclude words",

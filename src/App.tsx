@@ -8,6 +8,7 @@ import {
   crOptions,
   defaultSelectOptions,
   ESelectNames,
+  glOptions,
   hlOptions,
   IParamsFormData,
   ISelectOption,
@@ -29,6 +30,7 @@ function App() {
   const lrRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const hlRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const udmRef = useRef<SelectInstance<ISelectOption> | null>(null);
+  const glRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const crRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const startRef = useRef<HTMLInputElement>(null);
   const numRef = useRef<HTMLInputElement>(null);
@@ -74,6 +76,13 @@ function App() {
 
       case ESelectNames.UDM:
         udmRef.current?.setValue(
+          { label: tile.selectLabel || "", value: tile.rawValue },
+          "select-option"
+        );
+        break;
+
+      case ESelectNames.GL:
+        glRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
           "select-option"
         );
@@ -139,6 +148,9 @@ function App() {
       case ESelectNames.UDM:
         return udmRef.current?.getValue()[0].label;
 
+      case ESelectNames.GL:
+        return glRef.current?.getValue()[0].label;
+
       case ESelectNames.LR:
         return lrRef.current?.getValue()[0].label;
 
@@ -151,6 +163,7 @@ function App() {
     formRef.current?.reset();
     hlRef.current?.setValue(defaultSelectOptions.hl, "select-option");
     udmRef.current?.setValue(defaultSelectOptions.udm, "select-option");
+    glRef.current?.setValue(defaultSelectOptions.gl, "select-option");
     crRef.current?.setValue(defaultSelectOptions.cr, "select-option");
     lrRef.current?.setValue(defaultSelectOptions.lr, "select-option");
     tbsRef.current?.setValue(defaultSelectOptions.tbs, "select-option");
@@ -177,6 +190,10 @@ function App() {
 
         case ESelectNames.UDM:
           udmRef.current?.setValue(defaultSelectOptions.udm, "select-option");
+          break;
+
+        case ESelectNames.GL:
+          glRef.current?.setValue(defaultSelectOptions.gl, "select-option");
           break;
 
         case ESelectNames.CR:
@@ -319,6 +336,13 @@ function App() {
               ref={tbsRef}
               defaultValue={defaultSelectOptions.tbs}
               options={tbsOptions}
+            />
+
+            <Select
+              name={ESelectNames.GL}
+              ref={glRef}
+              defaultValue={defaultSelectOptions.gl}
+              options={glOptions}
             />
           </div>
         </form>
