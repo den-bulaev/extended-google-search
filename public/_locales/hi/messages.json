@@ -34,10 +34,13 @@
     "message": "इंटरफेस भाषा"
   },
   "crLabel": {
-    "message": "देश चुनें"
+    "message": "वेबसाइट देश"
   },
   "udmLabel": {
     "message": "यूडीएम (UDM) फ़िल्टर चुनें"
+  },
+  "glLabel": {
+    "message": "उपयोगकर्ता देश"
   },
   "numLabel": {
     "message": "पृष्ठ प्रति दिखाएं"

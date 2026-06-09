@@ -34,10 +34,13 @@
     "message": "Interface language"
   },
   "crLabel": {
-    "message": "Select country"
+    "message": "Select website country"
   },
   "udmLabel": {
     "message": "Select udm filter"
+  },
+  "glLabel": {
+    "message": "Select user country"
   },
   "numLabel": {
     "message": "Show per page"

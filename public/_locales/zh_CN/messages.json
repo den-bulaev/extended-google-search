@@ -34,10 +34,13 @@
     "message": "界面语言"
   },
   "crLabel": {
-    "message": "选择国家"
+    "message": "网站国家"
   },
   "udmLabel": {
     "message": "选择 UDM 筛选器"
+  },
+  "glLabel": {
+    "message": "用户国家"
   },
   "numLabel": {
     "message": "每页显示"
