@@ -36,6 +36,9 @@
   "crLabel": {
     "message": "Seleccionar país"
   },
+  "udmLabel": {
+    "message": "Seleccionar filtro UDM"
+  },
   "numLabel": {
     "message": "Mostrar por página"
   },

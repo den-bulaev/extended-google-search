@@ -36,6 +36,9 @@
   "crLabel": {
     "message": "選擇國家"
   },
+  "udmLabel": {
+    "message": "選擇 UDM 篩選器"
+  },
   "numLabel": {
     "message": "每頁顯示"
   },

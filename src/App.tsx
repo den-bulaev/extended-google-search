@@ -15,6 +15,7 @@ import {
   labelTexts,
   lrOptions,
   tbsOptions,
+  udmOptions,
 } from "./utils";
 
 import icon from "./assets/cross.svg";
@@ -27,6 +28,7 @@ function App() {
   const tbsRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const lrRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const hlRef = useRef<SelectInstance<ISelectOption> | null>(null);
+  const udmRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const crRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const startRef = useRef<HTMLInputElement>(null);
   const numRef = useRef<HTMLInputElement>(null);
@@ -65,6 +67,13 @@ function App() {
 
       case ESelectNames.LR:
         lrRef.current?.setValue(
+          { label: tile.selectLabel || "", value: tile.rawValue },
+          "select-option"
+        );
+        break;
+
+      case ESelectNames.UDM:
+        udmRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
           "select-option"
         );
@@ -127,6 +136,9 @@ function App() {
       case ESelectNames.HL:
         return hlRef.current?.getValue()[0].label;
 
+      case ESelectNames.UDM:
+        return udmRef.current?.getValue()[0].label;
+
       case ESelectNames.LR:
         return lrRef.current?.getValue()[0].label;
 
@@ -138,6 +150,7 @@ function App() {
   const handleClickReset = () => {
     formRef.current?.reset();
     hlRef.current?.setValue(defaultSelectOptions.hl, "select-option");
+    udmRef.current?.setValue(defaultSelectOptions.udm, "select-option");
     crRef.current?.setValue(defaultSelectOptions.cr, "select-option");
     lrRef.current?.setValue(defaultSelectOptions.lr, "select-option");
     tbsRef.current?.setValue(defaultSelectOptions.tbs, "select-option");
@@ -160,6 +173,10 @@ function App() {
       switch (key) {
         case ESelectNames.HL:
           hlRef.current?.setValue(defaultSelectOptions.hl, "select-option");
+          break;
+
+        case ESelectNames.UDM:
+          udmRef.current?.setValue(defaultSelectOptions.udm, "select-option");
           break;
 
         case ESelectNames.CR:
@@ -243,6 +260,13 @@ function App() {
               ref={hlRef}
               defaultValue={defaultSelectOptions.hl}
               options={hlOptions}
+            />
+
+            <Select
+              name={ESelectNames.UDM}
+              ref={udmRef}
+              defaultValue={defaultSelectOptions.udm}
+              options={udmOptions}
             />
           </div>
 
