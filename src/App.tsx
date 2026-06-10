@@ -42,10 +42,12 @@ function App() {
         if (chrome.runtime.lastError) {
           console.error("Error:", chrome.runtime.lastError);
         } else {
-          response.data.forEach((item: ITile) => {
-            formPreFill(item);
-          });
-          setTiles(response.data);
+          if (response.data?.length) {
+            response.data.forEach((item: ITile) => {
+              formPreFill(item);
+            });
+            setTiles(response.data);
+          }
         }
       }
     );
