@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "苹果 香蕉"
   },
+  "changeLocationBtn": {
+    "message": "更改地点"
+  },
   "resetBtn": {
     "message": "重置"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "去年"
+  },
+  "changeLocation": {
+    "message": "更改地点"
+  },
+  "locationCountryTip": {
+    "message": "提示：位置应与所选用户国家一致"
+  },
+  "whitespaceTip": {
+    "message": "提示：使用空格作为分隔符"
+  },
+  "searchBtn": {
+    "message": "搜索"
+  },
+  "matches": {
+    "message": "匹配项。"
+  },
+  "provideSpecificQuery": {
+    "message": " 请输入更具体的搜索内容"
   }
 }

@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "яблоко банан"
   },
+  "changeLocationBtn": {
+    "message": "Сменить локацию"
+  },
   "resetBtn": {
     "message": "Сбросить"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "Последний год"
+  },
+  "changeLocation": {
+    "message": "Сменить локацию"
+  },
+  "locationCountryTip": {
+    "message": "Подсказка: Локация должна совпадать с выбранной страной пользователя"
+  },
+  "whitespaceTip": {
+    "message": "Подсказка: Используйте пробел как разделитель"
+  },
+  "searchBtn": {
+    "message": "Поиск"
+  },
+  "matches": {
+    "message": "совпадений."
+  },
+  "provideSpecificQuery": {
+    "message": " Пожалуйста, введите более специфический запрос"
   }
 }

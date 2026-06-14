@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "apple banana"
   },
+  "changeLocationBtn": {
+    "message": "Change location"
+  },
   "resetBtn": {
     "message": "Reset"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "Last year"
+  },
+  "changeLocation": {
+    "message": "Change location"
+  },
+  "locationCountryTip": {
+    "message": "Tip: Location should match selected user country"
+  },
+  "whitespaceTip": {
+    "message": "Tip: Use whitespace as a divider"
+  },
+  "searchBtn": {
+    "message": "Search"
+  },
+  "matches": {
+    "message": "matches."
+  },
+  "provideSpecificQuery": {
+    "message": " Please, provide more specific query"
   }
 }

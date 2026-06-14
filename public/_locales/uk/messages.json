@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "яблуко банан"
   },
+  "changeLocationBtn": {
+    "message": "Змінити локацію"
+  },
   "resetBtn": {
     "message": "Скинути"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "Останній рік"
+  },
+  "changeLocation": {
+    "message": "Змінити локацію"
+  },
+  "locationCountryTip": {
+    "message": "Підказка: Локація повинна збігатись з обраною країною користувача"
+  },
+  "whitespaceTip": {
+    "message": "Підказка: Використовуйте пробіл як роздільник"
+  },
+  "searchBtn": {
+    "message": "Пошук"
+  },
+  "matches": {
+    "message": "збігів."
+  },
+  "provideSpecificQuery": {
+    "message": " Будь ласка, введіть більш специфічний запит"
   }
 }

@@ -34,6 +34,7 @@ export interface IParamsFormData extends ISelectNames {
   num: string;
   as_sitesearch: string;
   as_eq: string;
+  uule: string;
 }
 
 export const defaultSelectOptions: Record<
@@ -385,13 +386,33 @@ export const labelTexts = {
   as_eq: "Exclude words",
   cr: defaultSelectOptions.cr!.label,
   tbs: defaultSelectOptions.tbs!.label,
+  uule: "Location",
 };
 
 export const BackgroundActions = {
   getStorage: "getStorage",
   setStorage: "setStorage",
+  searchGeo: "searchGeo",
 };
 
 export const ChromeStorageKeys = {
   tiles: "chromeStorageTiles",
+};
+
+export const getUULEString = (canonicalName: string): string => {
+  if (!canonicalName) {
+    return "";
+  }
+
+  const googleLookupTable =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+
+  const length = canonicalName.length;
+  const lengthIndex = length % 64;
+  const lengthChar = googleLookupTable[lengthIndex];
+  const uulePrefix = `w+CAIQICI${lengthChar}`;
+  const utf8Bytes = new TextEncoder().encode(canonicalName);
+  const base64Encoded = btoa(String.fromCharCode(...utf8Bytes));
+
+  return `${uulePrefix}${base64Encoded}`;
 };
