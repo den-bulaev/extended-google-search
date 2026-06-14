@@ -8,6 +8,7 @@ import {
   crOptions,
   defaultSelectOptions,
   ESelectNames,
+  getUULEString,
   glOptions,
   hlOptions,
   IParamsFormData,
@@ -21,9 +22,11 @@ import {
 
 import icon from "./assets/cross.svg";
 import icon48 from "./assets/icon48.png";
+import { Modal } from "./Modal";
 
 function App() {
   const [tiles, setTiles] = useState<ITile[]>([]);
+  const [selectedLocationId, setSelectedLocationId] = useState("");
 
   const formRef = useRef<HTMLFormElement | null>(null);
   const tbsRef = useRef<SelectInstance<ISelectOption> | null>(null);
@@ -34,6 +37,7 @@ function App() {
   const crRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const startRef = useRef<HTMLInputElement>(null);
   const numRef = useRef<HTMLInputElement>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     chrome.runtime.sendMessage(
@@ -42,12 +46,14 @@ function App() {
         if (chrome.runtime.lastError) {
           console.error("Error:", chrome.runtime.lastError);
         } else {
-          response.data.forEach((item: ITile) => {
-            formPreFill(item);
-          });
-          setTiles(response.data);
+          if (response.data?.length) {
+            response.data.forEach((item: ITile) => {
+              formPreFill(item);
+            });
+            setTiles(response.data);
+          }
         }
-      }
+      },
     );
   }, []);
 
@@ -56,42 +62,42 @@ function App() {
       case ESelectNames.CR:
         crRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
       case ESelectNames.HL:
         hlRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
       case ESelectNames.LR:
         lrRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
       case ESelectNames.UDM:
         udmRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
       case ESelectNames.GL:
         glRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
       case ESelectNames.TBS:
         tbsRef.current?.setValue(
           { label: tile.selectLabel || "", value: tile.rawValue },
-          "select-option"
+          "select-option",
         );
         break;
 
@@ -133,6 +139,14 @@ function App() {
       action: BackgroundActions.setStorage,
       state: rawTiles,
     });
+
+    const input = formRef.current?.elements.namedItem(
+      "uule",
+    ) as HTMLInputElement | null;
+
+    if (input && !input.value) {
+      setSelectedLocationId("");
+    }
 
     setTiles(rawTiles);
   };
@@ -214,6 +228,16 @@ function App() {
     (formRef.current?.elements.namedItem(key) as RadioNodeList).value = "";
   };
 
+  const updateLocation = (location: string) => {
+    const input = formRef.current?.elements.namedItem(
+      "uule",
+    ) as HTMLInputElement | null;
+
+    if (input) {
+      input.value = getUULEString(location);
+    }
+  };
+
   return (
     <div className="wrapper">
       <header className="header">
@@ -231,7 +255,7 @@ function App() {
           <div className="form-section">
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "startLabel"
+                "startLabel",
               )}:`}</span>
               <input
                 ref={startRef}
@@ -245,7 +269,7 @@ function App() {
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "as_epqLabel"
+                "as_epqLabel",
               )}:`}</span>
               <input
                 name="as_epq"
@@ -254,9 +278,13 @@ function App() {
               />
             </label>
 
+            <label className="element-hidden">
+              <input type="text" name="uule" />
+            </label>
+
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "as_filetypeLabel"
+                "as_filetypeLabel",
               )}:`}</span>
               <input
                 name="as_filetype"
@@ -290,7 +318,7 @@ function App() {
           <div className="form-section">
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "numLabel"
+                "numLabel",
               )}:`}</span>
               <input
                 ref={numRef}
@@ -304,7 +332,7 @@ function App() {
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "as_sitesearchLabel"
+                "as_sitesearchLabel",
               )}:`}</span>
               <input
                 name="as_sitesearch"
@@ -315,7 +343,7 @@ function App() {
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
-                "as_eqLabel"
+                "as_eqLabel",
               )}:`}</span>
               <input
                 name="as_eq"
@@ -349,7 +377,7 @@ function App() {
       </div>
       <div className="tiles-wrapper">
         <div className="tiles-container">
-          {tiles.map((tile, i) => {
+          {tiles.map((tile) => {
             if (!tile.value) {
               return null;
             }
@@ -357,7 +385,7 @@ function App() {
             return (
               <div
                 className="tile"
-                key={i + 1}
+                key={tile.value}
                 data-tooltip-id="tile-tooltip"
                 data-tooltip-content={tile.value}
               >
@@ -376,14 +404,35 @@ function App() {
       </div>
 
       <div className="btn-block">
-        <button className="btn reset-btn" onClick={handleClickReset}>
-          {chrome.i18n.getMessage("resetBtn")}
+        <button
+          className="btn background-green"
+          onClick={() => dialogRef.current?.showModal()}
+        >
+          {chrome.i18n.getMessage("changeLocationBtn")}
         </button>
 
-        <button className="btn submit-btn" type="submit" form="paramsForm">
-          {chrome.i18n.getMessage("applyBtn")}
-        </button>
+        <div className="background-green-block">
+          <button className="btn background-purple" onClick={handleClickReset}>
+            {chrome.i18n.getMessage("resetBtn")}
+          </button>
+
+          <button
+            className="btn background-green"
+            type="submit"
+            form="paramsForm"
+          >
+            {chrome.i18n.getMessage("applyBtn")}
+          </button>
+        </div>
       </div>
+      <Modal
+        {...{
+          selectedLocationId,
+          setSelectedLocationId,
+          updateLocation,
+          dialogRef,
+        }}
+      />
       <Tooltip id="tile-tooltip" />
     </div>
   );

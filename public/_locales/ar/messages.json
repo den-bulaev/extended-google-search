@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "تفاح موز"
   },
+  "changeLocationBtn": {
+    "message": "غيّر الموقع"
+  },
   "resetBtn": {
     "message": "إعادة تعيين"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "العام الماضي"
+  },
+  "changeLocation": {
+    "message": "غيّر الموقع"
+  },
+  "locationCountryTip": {
+    "message": "نصيحة: يجب أن يتطابق الموقع مع البلد المحدد للمستخدم"
+  },
+  "whitespaceTip": {
+    "message": "نصيحة: استخدم المسافة كفاصل"
+  },
+  "searchBtn": {
+    "message": "بحث"
+  },
+  "matches": {
+    "message": "مطابقات."
+  },
+  "provideSpecificQuery": {
+    "message": " يرجى إدخال استعلام أكثر تحديدًا"
   }
 }

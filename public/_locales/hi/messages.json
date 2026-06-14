@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "सेब केला"
   },
+  "changeLocationBtn": {
+    "message": "स्थान बदलना"
+  },
   "resetBtn": {
     "message": "रीसेट"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "पिछले साल"
+  },
+  "changeLocation": {
+    "message": "स्थान बदलना"
+  },
+  "locationCountryTip": {
+    "message": "सुझाव: स्थान चयनित उपयोगकर्ता देश से मेल खाना चाहिए"
+  },
+  "whitespaceTip": {
+    "message": "सुझाव: स्पेस को विभाजक के रूप में उपयोग करें"
+  },
+  "searchBtn": {
+    "message": "खोजें"
+  },
+  "matches": {
+    "message": "मिलान।"
+  },
+  "provideSpecificQuery": {
+    "message": " कृपया अधिक विशिष्ट खोज दर्ज करें"
   }
 }

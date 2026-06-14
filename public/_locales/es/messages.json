@@ -60,6 +60,9 @@
   "as_eqPlaceholder": {
     "message": "manzana plátano"
   },
+  "changeLocationBtn": {
+    "message": "Cambiar ubicación"
+  },
   "resetBtn": {
     "message": "Restablecer"
   },
@@ -80,5 +83,23 @@
   },
   "tbsOptionLastYear": {
     "message": "El año pasado"
+  },
+  "changeLocation": {
+    "message": "Cambiar ubicación"
+  },
+  "locationCountryTip": {
+    "message": "Consejo: La ubicación debe coincidir con el país seleccionado del usuario"
+  },
+  "whitespaceTip": {
+    "message": "Consejo: Usa el espacio como separador"
+  },
+  "searchBtn": {
+    "message": "Buscar"
+  },
+  "matches": {
+    "message": "Coincidencias."
+  },
+  "provideSpecificQuery": {
+    "message": " Introduce una búsqueda más específica"
   }
 }

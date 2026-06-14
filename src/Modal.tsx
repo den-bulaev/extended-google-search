@@ -1,0 +1,134 @@
+import {
+  Dispatch,
+  MouseEvent,
+  MouseEventHandler,
+  RefObject,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
+
+import { BackgroundActions } from "./utils";
+
+import icon from "./assets/cross.svg";
+
+type TModal = {
+  dialogRef: RefObject<HTMLDialogElement | null>;
+  updateLocation: (val: string) => void;
+  selectedLocationId: string;
+  setSelectedLocationId: Dispatch<SetStateAction<string>>;
+};
+
+type TSearchData = {
+  id: string;
+  value: string;
+};
+
+export function Modal(props: TModal) {
+  const {
+    dialogRef,
+    updateLocation,
+    selectedLocationId,
+    setSelectedLocationId,
+  } = props;
+
+  const [searchData, setSearchData] = useState<TSearchData[] | null>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  const handleClickOutDialog: MouseEventHandler<HTMLDialogElement> = (
+    e: MouseEvent,
+  ) => {
+    if (e.target === e.currentTarget) {
+      handleCloseModal();
+    }
+  };
+
+  const handleCloseModal = () => {
+    dialogRef.current?.close();
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!searchRef.current?.value) {
+      return;
+    }
+
+    chrome.runtime.sendMessage(
+      {
+        action: BackgroundActions.searchGeo,
+        queryList: searchRef.current.value.split(/\s+/),
+      },
+      (response) => {
+        if (response && response.success) {
+          setSearchData(response.data.length ? response.data : null);
+        } else {
+          console.error("Search error:", response?.error);
+        }
+      },
+    );
+  };
+
+  const handleListClick = (e: MouseEvent<HTMLUListElement>) => {
+    const target = e.target as HTMLElement;
+
+    if (target?.innerText) {
+      updateLocation(target.innerText);
+    }
+  };
+
+  return (
+    <dialog ref={dialogRef} onClick={handleClickOutDialog}>
+      <button onClick={handleCloseModal} className="icon-btn">
+        <img src={icon} alt="delete param" />
+      </button>
+
+      <section className="modal-content">
+        <h2>{chrome.i18n.getMessage("changeLocation")}</h2>
+
+        <aside>
+          <p className="useful-tip">
+            {chrome.i18n.getMessage("locationCountryTip")}
+          </p>
+          <span className="useful-tip">
+            {chrome.i18n.getMessage("whitespaceTip")}
+          </span>
+        </aside>
+
+        <form onSubmit={handleSubmit} className="search-form">
+          <input
+            ref={searchRef}
+            type="search"
+            name="locationSearch"
+            {...{ spellCheck: "false" }}
+          />
+          <button type="submit">{chrome.i18n.getMessage("searchBtn")}</button>
+        </form>
+
+        <aside className="to-many-results-tip">
+          <p className="useful-tip">
+            {`${searchData?.length || 0} ${chrome.i18n.getMessage("matches")}${searchData && searchData.length > 100 ? chrome.i18n.getMessage("provideSpecificQuery") : ""}`}
+          </p>
+        </aside>
+
+        <div className="list-wrapper">
+          <ul className="location-list" onClick={handleListClick}>
+            {(searchData && searchData.length <= 100 ? searchData : []).map(
+              (location) => {
+                return (
+                  <li
+                    key={location.id}
+                    className={`location-list_item${selectedLocationId === location.id ? " background-green" : ""}`}
+                    onClick={() => setSelectedLocationId(location.id)}
+                  >
+                    {location.value}
+                  </li>
+                );
+              },
+            )}
+          </ul>
+        </div>
+      </section>
+    </dialog>
+  );
+}
