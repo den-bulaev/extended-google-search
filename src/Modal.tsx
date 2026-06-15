@@ -8,6 +8,8 @@ import {
   useState,
 } from "react";
 
+import { Tooltip } from "react-tooltip";
+
 import { BackgroundActions } from "./utils";
 
 import icon from "./assets/cross.svg";
@@ -84,16 +86,10 @@ export function Modal(props: TModal) {
       </button>
 
       <section className="modal-content">
-        <h2>{chrome.i18n.getMessage("changeLocation")}</h2>
-
-        <aside>
-          <p className="useful-tip">
-            {chrome.i18n.getMessage("locationCountryTip")}
-          </p>
-          <span className="useful-tip">
-            {chrome.i18n.getMessage("whitespaceTip")}
-          </span>
-        </aside>
+        <h2 className="header-with-tooltip">
+          {chrome.i18n.getMessage("changeLocation")}
+          <a className="my-anchor-element">?</a>
+        </h2>
 
         <form onSubmit={handleSubmit} className="search-form">
           <input
@@ -129,6 +125,11 @@ export function Modal(props: TModal) {
           </ul>
         </div>
       </section>
+
+      <Tooltip anchorSelect=".my-anchor-element" place="bottom">
+        <p>{chrome.i18n.getMessage("locationCountryTip")}</p>
+        <p>{chrome.i18n.getMessage("whitespaceTip")}</p>
+      </Tooltip>
     </dialog>
   );
 }

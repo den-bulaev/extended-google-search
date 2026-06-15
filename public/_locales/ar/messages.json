@@ -25,7 +25,7 @@
     "message": "pdf, docx, إلخ"
   },
   "tbsLabel": {
-    "message": "اختيار الفترة الزمنية"
+    "message": "الفاصل الزمني"
   },
   "lrLabel": {
     "message": "تقييد حسب اللغة"
@@ -37,7 +37,7 @@
     "message": "بلد الموقع"
   },
   "udmLabel": {
-    "message": "اختر مرشح UDM"
+    "message": "مرشح UDM"
   },
   "glLabel": {
     "message": "بلد المستخدم"
@@ -88,16 +88,16 @@
     "message": "غيّر الموقع"
   },
   "locationCountryTip": {
-    "message": "نصيحة: يجب أن يتطابق الموقع مع البلد المحدد للمستخدم"
+    "message": "يجب أن يتطابق الموقع مع بلد المستخدم المحدد"
   },
   "whitespaceTip": {
-    "message": "نصيحة: استخدم المسافة كفاصل"
+    "message": "استخدم المسافة كفاصل"
   },
   "searchBtn": {
     "message": "بحث"
   },
   "matches": {
-    "message": "مطابقات."
+    "message": "مطابقات"
   },
   "provideSpecificQuery": {
     "message": " يرجى إدخال استعلام أكثر تحديدًا"
