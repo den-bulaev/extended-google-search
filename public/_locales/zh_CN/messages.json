@@ -25,7 +25,7 @@
     "message": "pdf, docx, 等等"
   },
   "tbsLabel": {
-    "message": "选择时间段"
+    "message": "时间间隔"
   },
   "lrLabel": {
     "message": "按语言限制"
@@ -34,10 +34,10 @@
     "message": "界面语言"
   },
   "crLabel": {
-    "message": "网站国家"
+    "message": "网站所在国家"
   },
   "udmLabel": {
-    "message": "选择 UDM 筛选器"
+    "message": "UDM 筛选器"
   },
   "glLabel": {
     "message": "用户国家"
@@ -88,16 +88,16 @@
     "message": "更改地点"
   },
   "locationCountryTip": {
-    "message": "提示：位置应与所选用户国家一致"
+    "message": "位置应与所选用户国家一致"
   },
   "whitespaceTip": {
-    "message": "提示：使用空格作为分隔符"
+    "message": "使用空格作为分隔符"
   },
   "searchBtn": {
     "message": "搜索"
   },
   "matches": {
-    "message": "匹配项。"
+    "message": "匹配项"
   },
   "provideSpecificQuery": {
     "message": " 请输入更具体的搜索内容"

@@ -25,7 +25,7 @@
     "message": "pdf, docx, आदि"
   },
   "tbsLabel": {
-    "message": "समय अवधि चुनें"
+    "message": "समय अंतराल"
   },
   "lrLabel": {
     "message": "भाषा द्वारा प्रतिबंधित"
@@ -37,10 +37,10 @@
     "message": "वेबसाइट देश"
   },
   "udmLabel": {
-    "message": "यूडीएम (UDM) फ़िल्टर चुनें"
+    "message": "UDM फ़िल्टर"
   },
   "glLabel": {
-    "message": "उपयोगकर्ता देश"
+    "message": "उपयोगकर्ता का देश"
   },
   "numLabel": {
     "message": "पृष्ठ प्रति दिखाएं"
@@ -88,16 +88,16 @@
     "message": "स्थान बदलना"
   },
   "locationCountryTip": {
-    "message": "सुझाव: स्थान चयनित उपयोगकर्ता देश से मेल खाना चाहिए"
+    "message": "स्थान चयनित उपयोगकर्ता देश से मेल खाना चाहिए"
   },
   "whitespaceTip": {
-    "message": "सुझाव: स्पेस को विभाजक के रूप में उपयोग करें"
+    "message": "स्पेस को विभाजक के रूप में उपयोग करें"
   },
   "searchBtn": {
     "message": "खोजें"
   },
   "matches": {
-    "message": "मिलान।"
+    "message": "मिलान"
   },
   "provideSpecificQuery": {
     "message": " कृपया अधिक विशिष्ट खोज दर्ज करें"

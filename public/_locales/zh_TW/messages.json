@@ -25,7 +25,7 @@
     "message": "pdf, docx, 等等"
   },
   "tbsLabel": {
-    "message": "選擇時間區間"
+    "message": "時間間隔"
   },
   "lrLabel": {
     "message": "按語言限制"
@@ -34,13 +34,13 @@
     "message": "視窗語言"
   },
   "crLabel": {
-    "message": "網站國家"
+    "message": "網站所在國家"
   },
   "udmLabel": {
-    "message": "選擇 UDM 篩選器"
+    "message": "UDM 篩選器"
   },
   "glLabel": {
-    "message": "用戶國家"
+    "message": "使用者國家"
   },
   "numLabel": {
     "message": "每頁顯示"
@@ -88,16 +88,16 @@
     "message": "更改地點"
   },
   "locationCountryTip": {
-    "message": "提示：位置應與所選使用者國家一致"
+    "message": "位置應與所選使用者國家一致"
   },
   "whitespaceTip": {
-    "message": "提示：使用空格作為分隔符"
+    "message": "使用空格作為分隔符"
   },
   "searchBtn": {
     "message": "搜尋"
   },
   "matches": {
-    "message": "匹配項目。"
+    "message": "匹配項"
   },
   "provideSpecificQuery": {
     "message": " 請輸入更具體的搜尋內容"

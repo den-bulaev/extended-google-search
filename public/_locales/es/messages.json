@@ -25,7 +25,7 @@
     "message": "pdf, docx, etc."
   },
   "tbsLabel": {
-    "message": "Seleccionar intervalo"
+    "message": "Intervalo de tiempo"
   },
   "lrLabel": {
     "message": "Restringir por idioma"
@@ -37,7 +37,7 @@
     "message": "País del sitio web"
   },
   "udmLabel": {
-    "message": "Seleccionar filtro UDM"
+    "message": "Filtro UDM"
   },
   "glLabel": {
     "message": "País del usuario"
@@ -88,16 +88,16 @@
     "message": "Cambiar ubicación"
   },
   "locationCountryTip": {
-    "message": "Consejo: La ubicación debe coincidir con el país seleccionado del usuario"
+    "message": "La ubicación debe coincidir con el país seleccionado del usuario"
   },
   "whitespaceTip": {
-    "message": "Consejo: Usa el espacio como separador"
+    "message": "Usa el espacio como separador"
   },
   "searchBtn": {
     "message": "Buscar"
   },
   "matches": {
-    "message": "Coincidencias."
+    "message": "coincidencias"
   },
   "provideSpecificQuery": {
     "message": " Introduce una búsqueda más específica"

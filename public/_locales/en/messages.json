@@ -25,7 +25,7 @@
     "message": "pdf, docx, etc."
   },
   "tbsLabel": {
-    "message": "Select time gap"
+    "message": "Time gap"
   },
   "lrLabel": {
     "message": "Restrict by language"
@@ -34,13 +34,13 @@
     "message": "Interface language"
   },
   "crLabel": {
-    "message": "Select website country"
+    "message": "Website country"
   },
   "udmLabel": {
-    "message": "Select udm filter"
+    "message": "UDM filter"
   },
   "glLabel": {
-    "message": "Select user country"
+    "message": "User country"
   },
   "numLabel": {
     "message": "Show per page"
@@ -88,16 +88,16 @@
     "message": "Change location"
   },
   "locationCountryTip": {
-    "message": "Tip: Location should match selected user country"
+    "message": "Location should match selected user country"
   },
   "whitespaceTip": {
-    "message": "Tip: Use whitespace as a divider"
+    "message": "Use whitespace as a divider"
   },
   "searchBtn": {
     "message": "Search"
   },
   "matches": {
-    "message": "matches."
+    "message": "matches"
   },
   "provideSpecificQuery": {
     "message": " Please, provide more specific query"
