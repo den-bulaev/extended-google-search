@@ -1,7 +1,7 @@
 {
-  "name": "extended-google-search",
+  "name": "url-params-injector",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "scripts": {
     "dev": "vite",
