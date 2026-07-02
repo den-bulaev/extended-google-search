@@ -1,9 +1,9 @@
 {
   "appName": {
-    "message": "Extended Google Search"
+    "message": "URL Params Injector - SERP manager"
   },
   "appDescription": {
-    "message": "Extend your Google Chrome search experience with advanced search parameters."
+    "message": "Take control of your SERP with custom URL parameters like UULE and more."
   },
 
   "startLabel": {
