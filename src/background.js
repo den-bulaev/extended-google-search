@@ -1,17 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { BackgroundActions, ChromeStorageKeys } from "./utils";
+import { BackgroundActions, ChromeStorageKeys, getSearchURL } from "./utils";
 
-chrome.omnibox.onInputEntered.addListener((text) => {
+chrome.omnibox.onInputEntered.addListener((query) => {
   chrome.storage.local.get(ChromeStorageKeys.tiles, (res) => {
-    const params = res[ChromeStorageKeys.tiles].map((el) => el.value).join("");
+    const searchURL = getSearchURL(query, res[ChromeStorageKeys.tiles]);
 
-    const updatedUrl = `https://www.google.com/search?q=${encodeURIComponent(
-      text,
-    )}${params}`;
-
-    if (text.trim()) {
-      chrome.tabs.update({ url: updatedUrl });
+    if (query.trim()) {
+      chrome.tabs.update({ url: searchURL });
     }
   });
 });

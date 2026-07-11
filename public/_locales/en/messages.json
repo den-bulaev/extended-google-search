@@ -1,9 +1,9 @@
 {
   "appName": {
-    "message": "URL Params Injector - SERP manager"
+    "message": "Search URL Builder — SERP Manager"
   },
   "appDescription": {
-    "message": "Take control of your SERP with custom URL parameters like UULE and more."
+    "message": "Easily update search links with custom parameters, geolocation (UULE), and more."
   },
 
   "startLabel": {
