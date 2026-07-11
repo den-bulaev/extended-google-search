@@ -416,3 +416,13 @@ export const getUULEString = (canonicalName: string): string => {
 
   return `${uulePrefix}${base64Encoded}`;
 };
+
+export const getSearchURL = (query: string, tiles: ITile[]): string => {
+  const params = tiles.map((el) => el.value).join("");
+
+  const updatedUrl = `https://www.google.com/search?q=${encodeURIComponent(
+    query,
+  )}${params}`;
+
+  return updatedUrl;
+};

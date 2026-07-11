@@ -8,6 +8,7 @@ import {
   crOptions,
   defaultSelectOptions,
   ESelectNames,
+  getSearchURL,
   getUULEString,
   glOptions,
   hlOptions,
@@ -27,7 +28,11 @@ import { Modal } from "./Modal";
 function App() {
   const [tiles, setTiles] = useState<ITile[]>([]);
   const [selectedLocationId, setSelectedLocationId] = useState("");
+  const [isSearch, setIsSearch] = useState(false);
 
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchFormRef = useRef<HTMLFormElement | null>(null);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
   const tbsRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const lrRef = useRef<SelectInstance<ISelectOption> | null>(null);
@@ -238,11 +243,71 @@ function App() {
     }
   };
 
+  const handleClickSearch = () => {
+    setIsSearch((prev) => {
+      if (searchFormRef.current && titleRef.current) {
+        if (prev) {
+          titleRef.current.classList.remove("element-hidden");
+          searchFormRef.current.classList.add("element-hidden");
+        } else {
+          searchFormRef.current.classList.remove("element-hidden");
+          titleRef.current.classList.add("element-hidden");
+
+          if (searchInputRef.current) {
+            searchInputRef.current.focus();
+          }
+        }
+      }
+
+      return !prev;
+    });
+
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (
+      isSearch &&
+      searchInputRef.current &&
+      searchInputRef.current.value.trim()
+    ) {
+      chrome.tabs.create({
+        url: getSearchURL(searchInputRef.current.value, tiles),
+      });
+    }
+  };
+
   return (
     <div className="wrapper">
       <header className="header">
-        <h2 className="title">{chrome.i18n.getMessage("appName")}</h2>
-        <img className="logo" src={icon48} alt="logo" />
+        <form
+          ref={searchFormRef}
+          className="main-search-form element-hidden"
+          onSubmit={handleSearchSubmit}
+        >
+          <input
+            ref={searchInputRef}
+            className="main-search-input"
+            type="search"
+            name="mainSearch"
+            placeholder="Search"
+            {...{ spellCheck: "false" }}
+          />
+        </form>
+        <h2 ref={titleRef} className="title">
+          {chrome.i18n.getMessage("appName")}
+        </h2>
+
+        <button
+          className="btn search-btn"
+          onClick={() => setIsSearch(!isSearch)}
+        >
+          <img src={icon48} alt="logo" onClick={handleClickSearch} />
+        </button>
       </header>
 
       <div className="form-wrapper">
