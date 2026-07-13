@@ -1,3 +1,11 @@
+import {
+  ControlProps,
+  CSSObjectWithLabel,
+  GroupBase,
+  OptionProps,
+  StylesConfig,
+} from "react-select";
+
 export interface ISelectOption {
   label: string;
   value: string;
@@ -425,4 +433,54 @@ export const getSearchURL = (query: string, tiles: ITile[]): string => {
   )}${params}`;
 
   return updatedUrl;
+};
+
+export const selectStyles: StylesConfig<
+  ISelectOption,
+  false,
+  GroupBase<ISelectOption>
+> = {
+  control: (
+    provided: CSSObjectWithLabel,
+    state: ControlProps<ISelectOption, false, GroupBase<ISelectOption>>,
+  ) => ({
+    ...provided,
+    backgroundColor: "white",
+    borderColor: state.isFocused ? "rgb(147 152 255)" : "#ccc",
+    boxShadow: state.isFocused ? "0 0 0 2px rgb(147 152 255)" : "none",
+    "&:hover": {
+      borderColor: state.isFocused ? "rgb(147 152 255)" : "#999",
+      cursor: "pointer",
+    },
+  }),
+
+  menu: (provided: CSSObjectWithLabel) => ({
+    ...provided,
+    backgroundColor: "white",
+    borderRadius: "8px",
+  }),
+
+  option: (
+    provided: CSSObjectWithLabel,
+    state: OptionProps<ISelectOption, false, GroupBase<ISelectOption>>,
+  ) => ({
+    ...provided,
+    backgroundColor: state.isSelected
+      ? "rgb(147 152 255)"
+      : state.isFocused
+        ? "#d5d8ff"
+        : "transparent",
+    color: state.isSelected ? "white" : "black",
+    cursor: "pointer",
+
+    "&:active": {
+      backgroundColor: "rgb(147 152 255)",
+      color: "black",
+    },
+  }),
+
+  singleValue: (provided: CSSObjectWithLabel) => ({
+    ...provided,
+    color: "#333",
+  }),
 };
