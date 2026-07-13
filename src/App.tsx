@@ -303,11 +303,8 @@ function App() {
           {chrome.i18n.getMessage("appName")}
         </h2>
 
-        <button
-          className="btn search-btn"
-          onClick={() => setIsSearch(!isSearch)}
-        >
-          <img src={icon48} alt="logo" onClick={handleClickSearch} />
+        <button className="btn search-btn" onClick={handleClickSearch}>
+          <img src={icon48} alt="logo" />
         </button>
       </header>
 

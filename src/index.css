@@ -152,9 +152,14 @@
 }
 
 .icon-btn img {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+.icon-btn img.big-image {
   width: 14px;
   height: 14px;
-  display: block;
 }
 
 /* dialog */
@@ -227,9 +232,9 @@ input[type="search"] {
   background-color: var(--search-bg);
   border: 1px solid var(--search-border);
   border-radius: var(--search-radius);
-  font-size: 1rem;
   outline: none;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 600;
   transition: 0.2s;
 }
 
@@ -238,7 +243,7 @@ input[type="search"]:focus {
 }
 
 .text-input {
-  padding: 0 5px;
+  padding: 2px 5px;
   border: 1px solid rgb(204, 204, 204);
   border-radius: 4px;
 }

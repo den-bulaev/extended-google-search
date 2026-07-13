@@ -82,7 +82,7 @@ export function Modal(props: TModal) {
   return (
     <dialog ref={dialogRef} onClick={handleClickOutDialog}>
       <button onClick={handleCloseModal} className="icon-btn">
-        <img src={icon} alt="delete param" />
+        <img src={icon} alt="delete param" className="big-image" />
       </button>
 
       <section className="modal-content">
