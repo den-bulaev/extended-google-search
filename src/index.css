@@ -230,14 +230,26 @@ input[type="search"] {
   font-size: 1rem;
   outline: none;
   font-size: 20px;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: 0.2s;
 }
 
 input[type="search"]:focus {
-  border-color: var(--color-purple);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 3px var(--color-purple);
+}
+
+.text-input {
+  padding: 0 5px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 4px;
+}
+
+.text-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-purple);
+}
+
+.text-input:hover {
+  border: 1px solid gray;
 }
 
 .search-form button {

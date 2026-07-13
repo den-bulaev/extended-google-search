@@ -17,6 +17,7 @@ import {
   ITile,
   labelTexts,
   lrOptions,
+  selectStyles,
   tbsOptions,
   udmOptions,
 } from "./utils";
@@ -324,6 +325,7 @@ function App() {
               )}:`}</span>
               <input
                 ref={startRef}
+                className="text-input"
                 name="start"
                 type="text"
                 maxLength={3}
@@ -337,6 +339,7 @@ function App() {
                 "as_epqLabel",
               )}:`}</span>
               <input
+                className="text-input"
                 name="as_epq"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_epqPlaceholder")}
@@ -344,7 +347,7 @@ function App() {
             </label>
 
             <label className="element-hidden">
-              <input type="text" name="uule" />
+              <input type="text" name="uule" className="text-input" />
             </label>
 
             <label className="input-wrapper">
@@ -352,6 +355,7 @@ function App() {
                 "as_filetypeLabel",
               )}:`}</span>
               <input
+                className="text-input"
                 name="as_filetype"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_filetypePlaceholder")}
@@ -363,6 +367,7 @@ function App() {
               ref={lrRef}
               defaultValue={defaultSelectOptions.lr}
               options={lrOptions}
+              styles={selectStyles}
             />
 
             <Select
@@ -370,6 +375,7 @@ function App() {
               ref={hlRef}
               defaultValue={defaultSelectOptions.hl}
               options={hlOptions}
+              styles={selectStyles}
             />
 
             <Select
@@ -377,6 +383,7 @@ function App() {
               ref={udmRef}
               defaultValue={defaultSelectOptions.udm}
               options={udmOptions}
+              styles={selectStyles}
             />
           </div>
 
@@ -387,6 +394,7 @@ function App() {
               )}:`}</span>
               <input
                 ref={numRef}
+                className="text-input"
                 name="num"
                 type="text"
                 maxLength={3}
@@ -400,6 +408,7 @@ function App() {
                 "as_sitesearchLabel",
               )}:`}</span>
               <input
+                className="text-input"
                 name="as_sitesearch"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_sitesearchPlaceholder")}
@@ -411,6 +420,7 @@ function App() {
                 "as_eqLabel",
               )}:`}</span>
               <input
+                className="text-input"
                 name="as_eq"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_eqPlaceholder")}
@@ -422,6 +432,7 @@ function App() {
               ref={crRef}
               defaultValue={defaultSelectOptions.cr}
               options={crOptions}
+              styles={selectStyles}
             />
 
             <Select
@@ -429,6 +440,7 @@ function App() {
               ref={tbsRef}
               defaultValue={defaultSelectOptions.tbs}
               options={tbsOptions}
+              styles={selectStyles}
             />
 
             <Select
@@ -436,6 +448,7 @@ function App() {
               ref={glRef}
               defaultValue={defaultSelectOptions.gl}
               options={glOptions}
+              styles={selectStyles}
             />
           </div>
         </form>
