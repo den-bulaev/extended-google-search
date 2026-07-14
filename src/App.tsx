@@ -30,6 +30,7 @@ function App() {
   const [tiles, setTiles] = useState<ITile[]>([]);
   const [selectedLocationId, setSelectedLocationId] = useState("");
   const [isSearch, setIsSearch] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchFormRef = useRef<HTMLFormElement | null>(null);
@@ -43,7 +44,6 @@ function App() {
   const crRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const startRef = useRef<HTMLInputElement>(null);
   const numRef = useRef<HTMLInputElement>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     chrome.runtime.sendMessage(
@@ -282,6 +282,10 @@ function App() {
     }
   };
 
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="wrapper">
       <header className="header">
@@ -481,7 +485,7 @@ function App() {
       <div className="btn-block">
         <button
           className="btn background-green"
-          onClick={() => dialogRef.current?.showModal()}
+          onClick={() => setIsModalOpen(true)}
         >
           {chrome.i18n.getMessage("changeLocationBtn")}
         </button>
@@ -500,14 +504,18 @@ function App() {
           </button>
         </div>
       </div>
-      <Modal
-        {...{
-          selectedLocationId,
-          setSelectedLocationId,
-          updateLocation,
-          dialogRef,
-        }}
-      />
+
+      {isModalOpen && (
+        <Modal
+          {...{
+            selectedLocationId,
+            setSelectedLocationId,
+            updateLocation,
+            handleClose
+          }}
+        />
+      )}
+
       <Tooltip id="tile-tooltip" />
     </div>
   );

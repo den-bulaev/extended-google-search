@@ -2,8 +2,8 @@ import {
   Dispatch,
   MouseEvent,
   MouseEventHandler,
-  RefObject,
   SetStateAction,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -15,10 +15,10 @@ import { BackgroundActions } from "./utils";
 import icon from "./assets/cross.svg";
 
 type TModal = {
-  dialogRef: RefObject<HTMLDialogElement | null>;
   updateLocation: (val: string) => void;
   selectedLocationId: string;
   setSelectedLocationId: Dispatch<SetStateAction<string>>;
+  handleClose: () => void;
 };
 
 type TSearchData = {
@@ -28,14 +28,22 @@ type TSearchData = {
 
 export function Modal(props: TModal) {
   const {
-    dialogRef,
     updateLocation,
     selectedLocationId,
     setSelectedLocationId,
+    handleClose,
   } = props;
 
   const [searchData, setSearchData] = useState<TSearchData[] | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+      searchRef.current?.focus();
+    }
+  }, []);
 
   const handleClickOutDialog: MouseEventHandler<HTMLDialogElement> = (
     e: MouseEvent,
@@ -46,7 +54,7 @@ export function Modal(props: TModal) {
   };
 
   const handleCloseModal = () => {
-    dialogRef.current?.close();
+    handleClose();
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
