@@ -415,32 +415,28 @@ function App() {
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "startLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={startRef}
-                  className="text-input"
-                  name="start"
-                  type="text"
-                  maxLength={3}
-                  onInput={() => handleInput(startRef)}
-                  placeholder={chrome.i18n.getMessage("startPlaceholder")}
-                />
-              </div>
+              <input
+                ref={startRef}
+                className="text-input wrapper-mark"
+                name="start"
+                type="text"
+                maxLength={3}
+                onInput={() => handleInput(startRef)}
+                placeholder={chrome.i18n.getMessage("startPlaceholder")}
+              />
             </label>
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "as_epqLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={epqRef}
-                  className="text-input"
-                  name="as_epq"
-                  type="text"
-                  placeholder={chrome.i18n.getMessage("as_epqPlaceholder")}
-                />
-              </div>
+              <input
+                ref={epqRef}
+                className="text-input wrapper-mark"
+                name="as_epq"
+                type="text"
+                placeholder={chrome.i18n.getMessage("as_epqPlaceholder")}
+              />
             </label>
 
             <label className="element-hidden">
@@ -451,15 +447,13 @@ function App() {
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "as_filetypeLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={filetypeRef}
-                  className="text-input"
-                  name="as_filetype"
-                  type="text"
-                  placeholder={chrome.i18n.getMessage("as_filetypePlaceholder")}
-                />
-              </div>
+              <input
+                ref={filetypeRef}
+                className="text-input wrapper-mark"
+                name="as_filetype"
+                type="text"
+                placeholder={chrome.i18n.getMessage("as_filetypePlaceholder")}
+              />
             </label>
 
             <div className="wrapper-mark">
@@ -498,49 +492,41 @@ function App() {
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "numLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={numRef}
-                  className="text-input"
-                  name="num"
-                  type="text"
-                  maxLength={3}
-                  onInput={() => handleInput(numRef)}
-                  placeholder={chrome.i18n.getMessage("numPlaceholder")}
-                />
-              </div>
+              <input
+                ref={numRef}
+                className="text-input wrapper-mark"
+                name="num"
+                type="text"
+                maxLength={3}
+                onInput={() => handleInput(numRef)}
+                placeholder={chrome.i18n.getMessage("numPlaceholder")}
+              />
             </label>
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "as_sitesearchLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={siteSearchRef}
-                  className="text-input"
-                  name="as_sitesearch"
-                  type="text"
-                  placeholder={chrome.i18n.getMessage(
-                    "as_sitesearchPlaceholder",
-                  )}
-                />
-              </div>
+              <input
+                ref={siteSearchRef}
+                className="text-input wrapper-mark"
+                name="as_sitesearch"
+                type="text"
+                placeholder={chrome.i18n.getMessage("as_sitesearchPlaceholder")}
+              />
             </label>
 
             <label className="input-wrapper">
               <span className="label-text">{`${chrome.i18n.getMessage(
                 "as_eqLabel",
               )}:`}</span>
-              <div className="wrapper-mark">
-                <input
-                  ref={eqRef}
-                  className="text-input"
-                  name="as_eq"
-                  type="text"
-                  placeholder={chrome.i18n.getMessage("as_eqPlaceholder")}
-                />
-              </div>
+              <input
+                ref={eqRef}
+                className="text-input wrapper-mark"
+                name="as_eq"
+                type="text"
+                placeholder={chrome.i18n.getMessage("as_eqPlaceholder")}
+              />
             </label>
 
             <div className="wrapper-mark">
