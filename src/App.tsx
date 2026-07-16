@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 
 import Select, { SelectInstance } from "react-select";
 import { Tooltip } from "react-tooltip";
@@ -7,6 +7,7 @@ import {
   BackgroundActions,
   crOptions,
   defaultSelectOptions,
+  EInputNames,
   ESelectNames,
   getSearchURL,
   getUULEString,
@@ -17,6 +18,7 @@ import {
   ITile,
   labelTexts,
   lrOptions,
+  removeInputMark,
   selectStyles,
   tbsOptions,
   udmOptions,
@@ -30,6 +32,7 @@ function App() {
   const [tiles, setTiles] = useState<ITile[]>([]);
   const [selectedLocationId, setSelectedLocationId] = useState("");
   const [isSearch, setIsSearch] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchFormRef = useRef<HTMLFormElement | null>(null);
@@ -43,7 +46,10 @@ function App() {
   const crRef = useRef<SelectInstance<ISelectOption> | null>(null);
   const startRef = useRef<HTMLInputElement>(null);
   const numRef = useRef<HTMLInputElement>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const eqRef = useRef<HTMLInputElement>(null);
+  const epqRef = useRef<HTMLInputElement>(null);
+  const filetypeRef = useRef<HTMLInputElement>(null);
+  const siteSearchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     chrome.runtime.sendMessage(
@@ -199,8 +205,14 @@ function App() {
     }
   };
 
-  const handleClickRemoveTile = (key: string) => {
+  const handleClickRemoveTile = (key: keyof IParamsFormData) => {
     setTiles((prev) => prev.filter((item) => item.key !== key));
+
+    const targetRef = defineRef(key);
+
+    if (targetRef?.current) {
+      removeInputMark(targetRef);
+    }
 
     if (Object.values(ESelectNames).includes(key as ESelectNames)) {
       switch (key) {
@@ -282,6 +294,89 @@ function App() {
     }
   };
 
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const defineRef = (key: keyof IParamsFormData) => {
+    switch (key) {
+      case ESelectNames.CR:
+        return crRef;
+
+      case ESelectNames.TBS:
+        return tbsRef;
+
+      case ESelectNames.HL:
+        return hlRef;
+
+      case ESelectNames.LR:
+        return lrRef;
+
+      case ESelectNames.UDM:
+        return udmRef;
+
+      case ESelectNames.GL:
+        return glRef;
+
+      case EInputNames.AS_EPQ:
+        return epqRef;
+
+      case EInputNames.AS_EQ:
+        return eqRef;
+
+      case EInputNames.AS_FILETYPE:
+        return filetypeRef;
+
+      case EInputNames.AS_SITESEARCH:
+        return siteSearchRef;
+
+      case EInputNames.NUM:
+        return numRef;
+
+      case EInputNames.START:
+        return startRef;
+
+      default:
+        return null;
+    }
+  };
+
+  const handleTileFocus = (key: keyof IParamsFormData, isBlur?: boolean) => {
+    const targetRef: RefObject<
+      HTMLInputElement | SelectInstance<ISelectOption> | null
+    > | null = defineRef(key);
+
+    if (!targetRef?.current) {
+      return;
+    }
+
+    if (isBlur) {
+      removeInputMark(targetRef);
+      return;
+    }
+
+    const targetDomElement =
+      targetRef.current instanceof HTMLInputElement
+        ? targetRef.current
+        : targetRef.current.controlRef;
+
+    if (targetDomElement) {
+      const containerDOM = targetDomElement.closest(".wrapper-mark");
+
+      if (containerDOM) {
+        containerDOM.classList.add("input-mark");
+      }
+    }
+  };
+
+  const onTileFocus = (key: keyof IParamsFormData) => {
+    handleTileFocus(key);
+  };
+
+  const onTileBlur = (key: keyof IParamsFormData) => {
+    handleTileFocus(key, true);
+  };
+
   return (
     <div className="wrapper">
       <header className="header">
@@ -303,7 +398,7 @@ function App() {
           {chrome.i18n.getMessage("appName")}
         </h2>
 
-        <button className="btn search-btn" onClick={handleClickSearch}>
+        <button className="search-btn" onClick={handleClickSearch}>
           <img src={icon48} alt="logo" />
         </button>
       </header>
@@ -322,7 +417,7 @@ function App() {
               )}:`}</span>
               <input
                 ref={startRef}
-                className="text-input"
+                className="text-input wrapper-mark"
                 name="start"
                 type="text"
                 maxLength={3}
@@ -336,7 +431,8 @@ function App() {
                 "as_epqLabel",
               )}:`}</span>
               <input
-                className="text-input"
+                ref={epqRef}
+                className="text-input wrapper-mark"
                 name="as_epq"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_epqPlaceholder")}
@@ -352,36 +448,43 @@ function App() {
                 "as_filetypeLabel",
               )}:`}</span>
               <input
-                className="text-input"
+                ref={filetypeRef}
+                className="text-input wrapper-mark"
                 name="as_filetype"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_filetypePlaceholder")}
               />
             </label>
 
-            <Select
-              name={ESelectNames.LR}
-              ref={lrRef}
-              defaultValue={defaultSelectOptions.lr}
-              options={lrOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.LR}
+                ref={lrRef}
+                defaultValue={defaultSelectOptions.lr}
+                options={lrOptions}
+                styles={selectStyles}
+              />
+            </div>
 
-            <Select
-              name={ESelectNames.HL}
-              ref={hlRef}
-              defaultValue={defaultSelectOptions.hl}
-              options={hlOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.HL}
+                ref={hlRef}
+                defaultValue={defaultSelectOptions.hl}
+                options={hlOptions}
+                styles={selectStyles}
+              />
+            </div>
 
-            <Select
-              name={ESelectNames.UDM}
-              ref={udmRef}
-              defaultValue={defaultSelectOptions.udm}
-              options={udmOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.UDM}
+                ref={udmRef}
+                defaultValue={defaultSelectOptions.udm}
+                options={udmOptions}
+                styles={selectStyles}
+              />
+            </div>
           </div>
 
           <div className="form-section">
@@ -391,7 +494,7 @@ function App() {
               )}:`}</span>
               <input
                 ref={numRef}
-                className="text-input"
+                className="text-input wrapper-mark"
                 name="num"
                 type="text"
                 maxLength={3}
@@ -405,7 +508,8 @@ function App() {
                 "as_sitesearchLabel",
               )}:`}</span>
               <input
-                className="text-input"
+                ref={siteSearchRef}
+                className="text-input wrapper-mark"
                 name="as_sitesearch"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_sitesearchPlaceholder")}
@@ -417,36 +521,43 @@ function App() {
                 "as_eqLabel",
               )}:`}</span>
               <input
-                className="text-input"
+                ref={eqRef}
+                className="text-input wrapper-mark"
                 name="as_eq"
                 type="text"
                 placeholder={chrome.i18n.getMessage("as_eqPlaceholder")}
               />
             </label>
 
-            <Select
-              name={ESelectNames.CR}
-              ref={crRef}
-              defaultValue={defaultSelectOptions.cr}
-              options={crOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.CR}
+                ref={crRef}
+                defaultValue={defaultSelectOptions.cr}
+                options={crOptions}
+                styles={selectStyles}
+              />
+            </div>
 
-            <Select
-              name={ESelectNames.TBS}
-              ref={tbsRef}
-              defaultValue={defaultSelectOptions.tbs}
-              options={tbsOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.TBS}
+                ref={tbsRef}
+                defaultValue={defaultSelectOptions.tbs}
+                options={tbsOptions}
+                styles={selectStyles}
+              />
+            </div>
 
-            <Select
-              name={ESelectNames.GL}
-              ref={glRef}
-              defaultValue={defaultSelectOptions.gl}
-              options={glOptions}
-              styles={selectStyles}
-            />
+            <div className="wrapper-mark">
+              <Select
+                name={ESelectNames.GL}
+                ref={glRef}
+                defaultValue={defaultSelectOptions.gl}
+                options={glOptions}
+                styles={selectStyles}
+              />
+            </div>
           </div>
         </form>
       </div>
@@ -463,6 +574,8 @@ function App() {
                 key={tile.value}
                 data-tooltip-id="tile-tooltip"
                 data-tooltip-content={tile.value}
+                onMouseEnter={() => onTileFocus(tile.key)}
+                onMouseLeave={() => onTileBlur(tile.key)}
               >
                 <button
                   onClick={() => handleClickRemoveTile(tile.key)}
@@ -480,8 +593,8 @@ function App() {
 
       <div className="btn-block">
         <button
-          className="btn background-green"
-          onClick={() => dialogRef.current?.showModal()}
+          className="btn background-orange"
+          onClick={() => setIsModalOpen(true)}
         >
           {chrome.i18n.getMessage("changeLocationBtn")}
         </button>
@@ -492,7 +605,7 @@ function App() {
           </button>
 
           <button
-            className="btn background-green"
+            className="btn background-orange"
             type="submit"
             form="paramsForm"
           >
@@ -500,15 +613,19 @@ function App() {
           </button>
         </div>
       </div>
-      <Modal
-        {...{
-          selectedLocationId,
-          setSelectedLocationId,
-          updateLocation,
-          dialogRef,
-        }}
-      />
-      <Tooltip id="tile-tooltip" />
+
+      {isModalOpen && (
+        <Modal
+          {...{
+            selectedLocationId,
+            setSelectedLocationId,
+            updateLocation,
+            handleClose,
+          }}
+        />
+      )}
+
+      <Tooltip id="tile-tooltip" place="bottom" />
     </div>
   );
 }
