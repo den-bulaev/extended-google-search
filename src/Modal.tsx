@@ -122,7 +122,7 @@ export function Modal(props: TModal) {
                 return (
                   <li
                     key={location.id}
-                    className={`location-list_item${selectedLocationId === location.id ? " background-green" : ""}`}
+                    className={`location-list_item${selectedLocationId === location.id ? " background-light-purple" : ""}`}
                     onClick={() => setSelectedLocationId(location.id)}
                   >
                     {location.value}

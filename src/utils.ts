@@ -1,8 +1,10 @@
+import { RefObject } from "react";
 import {
   ControlProps,
   CSSObjectWithLabel,
   GroupBase,
   OptionProps,
+  SelectInstance,
   StylesConfig,
 } from "react-select";
 
@@ -33,6 +35,15 @@ export enum ESelectNames {
   LR = "lr",
   UDM = "udm",
   GL = "gl",
+}
+
+export enum EInputNames {
+  START = "start",
+  AS_EPQ = "as_epq",
+  AS_FILETYPE = "as_filetype",
+  NUM = "num",
+  AS_SITESEARCH = "as_sitesearch",
+  AS_EQ = "as_eq",
 }
 
 export interface IParamsFormData extends ISelectNames {
@@ -483,4 +494,25 @@ export const selectStyles: StylesConfig<
     ...provided,
     color: "#333",
   }),
+};
+
+export const removeInputMark = (
+  targetRef: RefObject<HTMLInputElement | SelectInstance<ISelectOption> | null>,
+) => {
+  if (!targetRef?.current) {
+    return;
+  }
+
+  const targetDomElement =
+    targetRef.current instanceof HTMLInputElement
+      ? targetRef.current
+      : targetRef.current.controlRef;
+
+  if (targetDomElement) {
+    const containerDOM = targetDomElement.closest(".wrapper-mark");
+
+    if (containerDOM) {
+      containerDOM.classList.remove("input-mark");
+    }
+  }
 };
