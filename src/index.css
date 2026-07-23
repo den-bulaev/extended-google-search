@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 120px;
+  padding: 0 150px;
 }
 
 .title {
@@ -125,9 +125,13 @@
   padding: 5px 20px;
 }
 
-.background-green-block {
+.btn-group {
   display: flex;
   column-gap: 5px;
+}
+
+.gap-10 {
+  column-gap: 10px;
 }
 
 .btn {
@@ -166,13 +170,21 @@
   cursor: pointer;
 }
 
-.icon-btn img {
-  width: 10px;
-  height: 10px;
-  display: block;
+.bucket-btn {
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+  color: #ce0909;
 }
 
-.icon-btn img.big-image {
+.tile:hover .bucket-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.big-image {
   width: 14px;
   height: 14px;
 }
@@ -241,7 +253,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
-input[type="search"] {
+.input-prime {
   flex-grow: 1;
   padding: var(--search-padding);
   background-color: var(--search-bg);
@@ -253,7 +265,7 @@ input[type="search"] {
   transition: 0.2s;
 }
 
-input[type="search"]:focus {
+.input-prime:focus {
   box-shadow: 0 0 0 2px var(--color-purple);
 }
 
@@ -286,8 +298,8 @@ input[type="search"]:focus {
   opacity: 0.5;
 }
 
-.to-many-results-tip {
-  align-self: start;
+.tip-left {
+  align-self: flex-start;
   margin-left: 5px;
   margin-top: 15px;
 }
@@ -317,7 +329,7 @@ ul.location-list::-webkit-scrollbar {
   overflow-y: auto;
 }
 
-.location-list_item {
+.list-item {
   flex-shrink: 0;
   margin: 0;
   padding: 2px 3px;
@@ -327,8 +339,16 @@ ul.location-list::-webkit-scrollbar {
   text-overflow: ellipsis;
 }
 
-.location-list_item:hover {
-  background-color: #d5d8ff;
+.list-item:hover {
+  background-color: #ebedff;
+}
+
+.list-item:active {
+  background-color: #ebedff;
+}
+
+.list-item:hover .delete-preset {
+  color: #C74A4A;
 }
 
 .element-hidden {
@@ -364,4 +384,30 @@ ul.location-list::-webkit-scrollbar {
 .input-mark {
   box-shadow: 0 0 0 2px var(--color-purple);
   border-radius: 4px;
+}
+
+.need-apply {
+  background-color: #ffb330;
+}
+
+.delete-preset {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: #9BADB7;
+}
+
+.preset-list-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preset-name {
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

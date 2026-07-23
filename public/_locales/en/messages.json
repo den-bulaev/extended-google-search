@@ -1,9 +1,9 @@
 {
   "appName": {
-    "message": "Search URL Builder — SERP Manager"
+    "message": "Power Search — SERP Manager"
   },
   "appDescription": {
-    "message": "Easily update search links with custom parameters, geolocation (UULE), and more."
+    "message": "Search across multiple locations in one click using presets, UULE, TBS, UDM, and more."
   },
 
   "startLabel": {
@@ -46,7 +46,7 @@
     "message": "Show per page"
   },
   "numPlaceholder": {
-    "message": "number from 1 to 100"
+    "message": "number from 1 to 10"
   },
   "as_sitesearchLabel": {
     "message": "Restrict results to site"
@@ -62,6 +62,9 @@
   },
   "changeLocationBtn": {
     "message": "Change location"
+  },
+  "presetsBtn": {
+    "message": "Presets"
   },
   "resetBtn": {
     "message": "Reset"
@@ -101,5 +104,39 @@
   },
   "provideSpecificQuery": {
     "message": " Please, provide more specific query"
+  },
+
+  "addPresetBtn": {
+    "message": "Add"
+  },
+  "presetsTitle": {
+    "message": "Presets"
+  },
+  "presetsTooltipBulk": {
+    "message": "Middle-click for bulk search. Search field is required"
+  },
+  "presetsPlaceholder": {
+    "message": "Preset name"
+  },
+  "presetsTipCounter": {
+    "message": "preset"
+  },
+  "presetsTipCounterMultiple": {
+    "message": "presets"
+  },
+  "enterLocation": {
+    "message": "Enter location"
+  },
+  "presetsTooltip": {
+    "message": "Preset is based on the selected parameters"
+  },
+  "presetNotFoundError": {
+    "message": "Preset is not found"
+  },
+  "presetNameExistsError": {
+    "message": "Name already exists"
+  },
+  "searchPlaceholder": {
+    "message": "Search"
   }
 }

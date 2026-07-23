@@ -109,7 +109,7 @@ export function Modal(props: TModal) {
           <button type="submit">{chrome.i18n.getMessage("searchBtn")}</button>
         </form>
 
-        <aside className="to-many-results-tip">
+        <aside className="tip-left">
           <p className="useful-tip">
             {`${searchData?.length || 0} ${chrome.i18n.getMessage("matches")}${searchData && searchData.length > 100 ? chrome.i18n.getMessage("provideSpecificQuery") : ""}`}
           </p>
@@ -122,7 +122,7 @@ export function Modal(props: TModal) {
                 return (
                   <li
                     key={location.id}
-                    className={`location-list_item${selectedLocationId === location.id ? " background-light-purple" : ""}`}
+                    className={`list-item${selectedLocationId === location.id ? " background-light-purple" : ""}`}
                     onClick={() => setSelectedLocationId(location.id)}
                   >
                     {location.value}

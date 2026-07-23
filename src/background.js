@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import { BackgroundActions, ChromeStorageKeys, getSearchURL } from "./utils";
 
@@ -39,7 +39,10 @@ async function searchInExtensionGzip(searchList) {
       let isStringMatched = true;
 
       for (let searchWord of searchList) {
-        const regex = new RegExp(`(?<![\\p{L}\\p{N}])${searchWord}(?![\\p{L}\\p{N}])`, "iu");
+        const regex = new RegExp(
+          `(?<![\\p{L}\\p{N}])${searchWord}(?![\\p{L}\\p{N}])`,
+          "iu",
+        );
 
         if (!regex.test(cleanLine)) {
           isStringMatched = false;
@@ -73,6 +76,59 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         .catch((err) => sendResponse({ success: false, error: err.message }));
 
       return true;
+
+    case BackgroundActions.getPresets:
+      chrome.storage.local.get(ChromeStorageKeys.presets, (res) => {
+        sendResponse({ data: res[ChromeStorageKeys.presets] });
+      });
+      break;
+
+    case BackgroundActions.addPreset:
+      chrome.storage.local.get({ [ChromeStorageKeys.presets]: [] }, (res) => {
+        if (
+          res[ChromeStorageKeys.presets].find(
+            (el) => el.key === message.state.key,
+          )
+        ) {
+          sendResponse({ success: false, message: "presetNameExistsError" });
+          return;
+        }
+
+        chrome.storage.local.set(
+          {
+            [ChromeStorageKeys.presets]: [
+              ...res[ChromeStorageKeys.presets],
+              message.state,
+            ],
+          },
+          () => sendResponse({ success: true }),
+        );
+      });
+      break;
+
+    case BackgroundActions.deletePreset:
+      chrome.storage.local.get({ [ChromeStorageKeys.presets]: [] }, (res) => {
+        if (
+          res[ChromeStorageKeys.presets].find(
+            (el) => el.key === message.state.key,
+          ) === -1
+        ) {
+          sendResponse({ success: false, message: "presetNotFoundError" });
+          return;
+        }
+
+        const updatedPresets = res[ChromeStorageKeys.presets].filter(
+          (preset) => preset.key !== message.state.key,
+        );
+
+        chrome.storage.local.set(
+          {
+            [ChromeStorageKeys.presets]: updatedPresets,
+          },
+          () => sendResponse({ data: updatedPresets, success: true }),
+        );
+      });
+      break;
 
     default:
       chrome.storage.local.get(ChromeStorageKeys.tiles, (res) => {
