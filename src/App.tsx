@@ -3,6 +3,10 @@ import { RefObject, useEffect, useRef, useState } from "react";
 import Select, { SelectInstance } from "react-select";
 import { Tooltip } from "react-tooltip";
 
+import { LocationModal } from "./components/LocationModal/LocationModal";
+import { PresetsModal } from "./components/PresetsModal/PresetsModal";
+import { CrossSmall } from "./components/Icons/CrossSmall";
+
 import {
   BackgroundActions,
   crOptions,
@@ -24,15 +28,12 @@ import {
   udmOptions,
 } from "./utils";
 
-import icon from "./assets/cross.svg";
 import icon48 from "./assets/icon48.png";
-import { Modal } from "./Modal";
 
 function App() {
   const [tiles, setTiles] = useState<ITile[]>([]);
-  const [selectedLocationId, setSelectedLocationId] = useState("");
   const [isSearch, setIsSearch] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDirty, setIsDirty] = useState(false);
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchFormRef = useRef<HTMLFormElement | null>(null);
@@ -152,15 +153,8 @@ function App() {
       state: rawTiles,
     });
 
-    const input = formRef.current?.elements.namedItem(
-      "uule",
-    ) as HTMLInputElement | null;
-
-    if (input && !input.value) {
-      setSelectedLocationId("");
-    }
-
     setTiles(rawTiles);
+    setIsDirty(false);
   };
 
   const getSelectLabel = (key: keyof IParamsFormData) => {
@@ -197,11 +191,16 @@ function App() {
     setTiles([]);
   };
 
-  const handleInput = (refObj: React.RefObject<HTMLInputElement | null>) => {
+  const handleInput = (
+    refObj: React.RefObject<HTMLInputElement | null>,
+    isPerPage?: boolean,
+  ) => {
+    const count = isPerPage ? 10 : 100;
+
     if (refObj.current) {
       refObj.current.value = refObj.current.value.replace(/\D/g, "");
       refObj.current.value =
-        +refObj.current.value > 100 ? "100" : refObj.current.value;
+        +refObj.current.value > count ? String(count) : refObj.current.value;
     }
   };
 
@@ -254,6 +253,8 @@ function App() {
     if (input) {
       input.value = getUULEString(location);
     }
+
+    setIsDirty(true);
   };
 
   const handleClickSearch = () => {
@@ -292,10 +293,6 @@ function App() {
         url: getSearchURL(searchInputRef.current.value, tiles),
       });
     }
-  };
-
-  const handleClose = () => {
-    setIsModalOpen(false);
   };
 
   const defineRef = (key: keyof IParamsFormData) => {
@@ -377,6 +374,14 @@ function App() {
     handleTileFocus(key, true);
   };
 
+  const applyPresets = (params: ITile[]) => {
+    params.forEach((param) => {
+      formPreFill(param);
+    });
+
+    setIsDirty(true);
+  };
+
   return (
     <div className="wrapper">
       <header className="header">
@@ -387,10 +392,10 @@ function App() {
         >
           <input
             ref={searchInputRef}
-            className="main-search-input"
+            className="main-search-input input-prime"
             type="search"
             name="mainSearch"
-            placeholder="Search"
+            placeholder={chrome.i18n.getMessage("searchPlaceholder")}
             {...{ spellCheck: "false" }}
           />
         </form>
@@ -497,8 +502,8 @@ function App() {
                 className="text-input wrapper-mark"
                 name="num"
                 type="text"
-                maxLength={3}
-                onInput={() => handleInput(numRef)}
+                maxLength={2}
+                onInput={() => handleInput(numRef, true)}
                 placeholder={chrome.i18n.getMessage("numPlaceholder")}
               />
             </label>
@@ -561,6 +566,7 @@ function App() {
           </div>
         </form>
       </div>
+
       <div className="tiles-wrapper">
         <div className="tiles-container">
           {tiles.map((tile) => {
@@ -579,9 +585,9 @@ function App() {
               >
                 <button
                   onClick={() => handleClickRemoveTile(tile.key)}
-                  className="icon-btn"
+                  className="icon-btn bucket-btn"
                 >
-                  <img src={icon} alt="delete param" />
+                  <CrossSmall />
                 </button>
 
                 {tile.label}
@@ -592,20 +598,23 @@ function App() {
       </div>
 
       <div className="btn-block">
-        <button
-          className="btn background-orange"
-          onClick={() => setIsModalOpen(true)}
-        >
-          {chrome.i18n.getMessage("changeLocationBtn")}
-        </button>
+        <div className="btn-group gap-10">
+          <LocationModal updateLocation={updateLocation} />
+          <PresetsModal
+            tiles={tiles}
+            searchQuery={searchInputRef}
+            applyPresets={applyPresets}
+            handleClickSearch={handleClickSearch}
+          />
+        </div>
 
-        <div className="background-green-block">
+        <div className="btn-group">
           <button className="btn background-purple" onClick={handleClickReset}>
             {chrome.i18n.getMessage("resetBtn")}
           </button>
 
           <button
-            className="btn background-orange"
+            className={`btn background-orange${isDirty ? " need-apply" : ""}`}
             type="submit"
             form="paramsForm"
           >
@@ -614,18 +623,12 @@ function App() {
         </div>
       </div>
 
-      {isModalOpen && (
-        <Modal
-          {...{
-            selectedLocationId,
-            setSelectedLocationId,
-            updateLocation,
-            handleClose,
-          }}
-        />
-      )}
-
-      <Tooltip id="tile-tooltip" place="bottom" />
+      <Tooltip id="tile-tooltip" place="bottom" openOnClick={true} />
+      <Tooltip
+        id="preset-btn-tooltip"
+        place="top"
+        render={() => <p>{chrome.i18n.getMessage("presetsTooltipBulk")}</p>}
+      />
     </div>
   );
 }

@@ -412,10 +412,14 @@ export const BackgroundActions = {
   getStorage: "getStorage",
   setStorage: "setStorage",
   searchGeo: "searchGeo",
+  getPresets: "getPresets",
+  addPreset: "setPresets",
+  deletePreset: "deletePreset",
 };
 
 export const ChromeStorageKeys = {
   tiles: "chromeStorageTiles",
+  presets: "chromeStoragePresets",
 };
 
 export const getUULEString = (canonicalName: string): string => {
@@ -457,10 +461,10 @@ export const selectStyles: StylesConfig<
   ) => ({
     ...provided,
     backgroundColor: "white",
-    borderColor: state.isFocused ? "rgb(147 152 255)" : "#ccc",
-    boxShadow: state.isFocused ? "0 0 0 2px rgb(147 152 255)" : "none",
+    borderColor: state.isFocused ? "rgb(171, 176, 255)" : "#ccc",
+    boxShadow: state.isFocused ? "0 0 0 2px rgb(171, 176, 255)" : "none",
     "&:hover": {
-      borderColor: state.isFocused ? "rgb(147 152 255)" : "#999",
+      borderColor: state.isFocused ? "rgb(171, 176, 255)" : "#999",
       cursor: "pointer",
     },
   }),
@@ -479,7 +483,7 @@ export const selectStyles: StylesConfig<
     backgroundColor: state.isSelected
       ? "rgb(147 152 255)"
       : state.isFocused
-        ? "#d5d8ff"
+        ? "#ebedff"
         : "transparent",
     color: state.isSelected ? "white" : "black",
     cursor: "pointer",
